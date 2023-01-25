@@ -1,6 +1,22 @@
 export const mockDataTeam = [
+  {
+    id: 1,
+    name: "Amorcita mia",
+    email: "sofiLopez@gmail.com",
+    age: 20,
+    phone: "(665)121-5454",
+    access: "admin",
+  },
+  {
+    id: 2,
+    name: "Piruleta Portilla",
+    email: "piruPedorra@gmail.com",
+    age: 2,
+    phone: "(665)121-5454",
+    access: "admin",
+  },
     {
-      id: 1,
+      id: 10,
       name: "Jon Snow",
       email: "jonsnow@gmail.com",
       age: 35,
@@ -8,7 +24,7 @@ export const mockDataTeam = [
       access: "admin",
     },
     {
-      id: 2,
+      id: 11,
       name: "Cersei Lannister",
       email: "cerseilannister@gmail.com",
       age: 42,
@@ -26,7 +42,7 @@ export const mockDataTeam = [
     {
       id: 4,
       name: "Arya Stark",
-      email: "anyastark@gmail.com",
+      email: "aryastark@gmail.com",
       age: 16,
       phone: "(921)425-6742",
       access: "admin",
