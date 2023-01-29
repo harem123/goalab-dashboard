@@ -22,10 +22,7 @@ const Contacts = () =>{
     align:"left",
     flex:1, 
     cellClassName: "name-column--cell"},
-    {field: "phone", headerName:"Telefono", 
-    flex:1, },
-    {field: "email", headerName:"Email", 
-    flex:1, },
+    
     {field: "city", headerName:"Ciudad", 
     flex:1, },
     

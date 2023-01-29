@@ -5,7 +5,7 @@ import {Routes, Route} from "react-router-dom"
 import Team from "./scenes/team"
 import Contacts from "./scenes/contacts"
 import { useState } from "react";
-import Sidemenu from "./scenes/global/Sidebar";
+import Sidebarmenu from "./scenes/global/Sidebar";
 
 
 
@@ -19,10 +19,10 @@ const [isSidebar, setIsSidebar] = useState(true);
     <ThemeProvider theme={theme}>
       <CssBaseline />
     <div className="app"> 
-    <Sidemenu />
+    <Sidebarmenu isSidebar={isSidebar} />
     <main className="content">
 
-      <Topbar/>
+      <Topbar setIsSidebar={setIsSidebar}/>
      <Routes>
       <Route path="/" element={<Contacts/>}/>
      </Routes>
