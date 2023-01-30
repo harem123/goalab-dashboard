@@ -1,4 +1,4 @@
-import {Box, IconButton, useTheme} from '@mui/material'
+import {Box, IconButton, useTheme, Button} from '@mui/material'
 import { useContext } from 'react'
 import { ColorModeContext, tokens } from '../../theme'
 import InputBase from '@mui/material/InputBase'
@@ -8,7 +8,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 const Topbar =()=>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
@@ -19,13 +19,18 @@ const Topbar =()=>{
       {/* SEARCH BAR */}
       <Box
         display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="3px"
       >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
+        <Button
+            sx={{
+              color: colors.grey[100],
+              fontSize: "14px",
+              fontWeight: "bold",
+            }}
+          >
+            <HomeOutlinedIcon sx={{ mr: "2px" }} />
+            Dashboard
+          </Button>
+            
       </Box>
     
           {/* ICONS */}

@@ -1,4 +1,4 @@
-import { Box} from "@mui/material"
+import { Box , Button} from "@mui/material"
 import { DataGrid,GridToolbar } from "@mui/x-data-grid"
 import {tokens} from "../../theme"
 import {mockDataContacts} from "../../data/mockData"
@@ -32,6 +32,7 @@ const Contacts = () =>{
     return (
         <Box m="20px">
             <Header title="MIEMBROS" subtitle="Miembros de Goalab a lo largo del pais"/>
+            
             <Box m="40px 0 0 0" height="75vh"
             sx={{
                 "& .MuiDataGrid-root": {
