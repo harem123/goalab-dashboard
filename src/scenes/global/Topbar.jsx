@@ -9,6 +9,8 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import {Link} from "react-router-dom"
+
 const Topbar =()=>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
@@ -17,9 +19,12 @@ const Topbar =()=>{
     return (
         <Box display="flex" justifyContent="space-between" p={2}>
       {/* SEARCH BAR */}
+      
       <Box
         display="flex"
+        
       >
+        <Link to="/">
         <Button
             sx={{
               color: colors.grey[100],
@@ -27,11 +32,32 @@ const Topbar =()=>{
               fontWeight: "bold",
             }}
           >
-            <HomeOutlinedIcon sx={{ mr: "2px" }} />
+            <HomeOutlinedIcon />
             Dashboard
-          </Button>
             
+          </Button>
+          </Link>
+          <Box
+        display="flex"
+        
+      >
+        <Link to="/form">
+        <Button
+            sx={{
+              color: colors.grey[100],
+              fontSize: "14px",
+              fontWeight: "bold",
+            }}
+          >
+            <PersonOutlinedIcon sx={{ mr: "2px" }} />
+            Registration
+            
+          </Button>
+          </Link>
       </Box>
+      </Box>
+      
+
     
           {/* ICONS */}
           <Box display="flex">

@@ -6,7 +6,7 @@ import Team from "./scenes/team"
 import Contacts from "./scenes/contacts"
 import { useState } from "react";
 import Sidebarmenu from "./scenes/global/Sidebar";
-
+import Form from "./scenes/form/form"
 
 
 
@@ -19,12 +19,13 @@ const [isSidebar, setIsSidebar] = useState(true);
     <ThemeProvider theme={theme}>
       <CssBaseline />
     <div className="app"> 
-    <Sidebarmenu isSidebar={isSidebar} />
+    
     <main className="content">
 
       <Topbar setIsSidebar={setIsSidebar}/>
      <Routes>
       <Route path="/" element={<Contacts/>}/>
+      <Route path="/form" element={<Form />} />
      </Routes>
     </main>
     </div>

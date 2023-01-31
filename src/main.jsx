@@ -6,10 +6,12 @@ import { BrowserRouter } from 'react-router-dom'
 import { ProSidebarProvider } from "react-pro-sidebar";
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ProSidebarProvider>
     <BrowserRouter>
+    <ProSidebarProvider>
+    
     <App />
-    </BrowserRouter>
+    
     </ProSidebarProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )
