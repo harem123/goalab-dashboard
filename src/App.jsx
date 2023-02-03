@@ -7,7 +7,8 @@ import Contacts from "./scenes/contacts"
 import { useState } from "react";
 import Sidebarmenu from "./scenes/global/Sidebar";
 import Form from "./scenes/form/form"
-
+import Bar from "./scenes/bar/graphBar"
+import Dashboard from "./scenes/dashboard"
 
 
 function App() {
@@ -24,8 +25,8 @@ const [isSidebar, setIsSidebar] = useState(true);
 
       <Topbar setIsSidebar={setIsSidebar}/>
      <Routes>
-      <Route path="/" element={<Contacts/>}/>
-      <Route path="/form" element={<Form />} />
+      <Route path="/" element={<Dashboard/>}/>
+      <Route path="/form" element={<Bar />} />
      </Routes>
     </main>
     </div>
