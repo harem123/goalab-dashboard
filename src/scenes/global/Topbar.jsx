@@ -1,14 +1,14 @@
 import {Box, IconButton, useTheme, Button} from '@mui/material'
 import { useContext } from 'react'
 import { ColorModeContext, tokens } from '../../theme'
-import InputBase from '@mui/material/InputBase'
+
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SummarizeIcon from '@mui/icons-material/Summarize';
-import SearchIcon from "@mui/icons-material/Search";
+
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import {Link} from "react-router-dom"
 
