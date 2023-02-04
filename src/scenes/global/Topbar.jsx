@@ -7,6 +7,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import SummarizeIcon from '@mui/icons-material/Summarize';
 import SearchIcon from "@mui/icons-material/Search";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import {Link} from "react-router-dom"
@@ -49,8 +50,8 @@ const Topbar =()=>{
               fontWeight: "bold",
             }}
           >
-            <PersonOutlinedIcon sx={{ mr: "2px" }} />
-            Registration
+            <SummarizeIcon sx={{ mr: "2px" }} />
+            RESULTADOS 
             
           </Button>
           </Link>
@@ -68,9 +69,7 @@ const Topbar =()=>{
                 <LightModeOutlinedIcon />
               )}
             </IconButton>
-            <IconButton>
-              <NotificationsOutlinedIcon />
-            </IconButton>
+            
             <IconButton>
               <SettingsOutlinedIcon />
             </IconButton>

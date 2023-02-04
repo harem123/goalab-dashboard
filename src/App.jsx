@@ -26,7 +26,7 @@ const [isSidebar, setIsSidebar] = useState(true);
       <Topbar setIsSidebar={setIsSidebar}/>
      <Routes>
       <Route path="/" element={<Dashboard/>}/>
-      <Route path="/form" element={<Bar />} />
+      <Route path="/form" element={<Contacts />} />
      </Routes>
     </main>
     </div>

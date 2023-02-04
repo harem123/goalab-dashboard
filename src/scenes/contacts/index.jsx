@@ -1,7 +1,7 @@
 import { Box , Button} from "@mui/material"
 import { DataGrid,GridToolbar } from "@mui/x-data-grid"
 import {tokens} from "../../theme"
-import {mockDataContacts} from "../../data/mockData"
+import {mockDataStats} from "../../data/mockData"
 import { useTheme} from "@mui/material"
 import Header from "../../components/Header.jsx"
 
@@ -11,27 +11,31 @@ const Contacts = () =>{
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [
-    {field: "id", headerName:"ID",flex:0.5},
+      {field: "date", headerName:"fecha", 
+      flex:1, 
+      cellClassName: "name-column--cell"},
 
-    {field: "name", headerName:"Nombre", 
+    {field: "score", headerName:"Puntaje", type:"number",
     flex:1, 
     cellClassName: "name-column--cell"},
 
-    {field: "age", headerName:"Edad", type:"number",
+    {field: "hits", headerName:"Aciertos", type:"number",
+    flex:1,cellClassName: "name-column--cell" },
+
+    {field: "fails", headerName:"Fallados", type:"number",
     headerAlign:"left",
-    align:"left",
+    align:"center",
     flex:1, 
-    cellClassName: "name-column--cell"},
+    },
     
-    {field: "city", headerName:"Ciudad", 
-    flex:1, },
+    
     
 
 ]
 
     return (
         <Box m="20px">
-            <Header title="MIEMBROS" subtitle="Miembros de Goalab a lo largo del pais"/>
+            <Header title="ENTRENAMIENTOS" subtitle="Historico de resultados de tus entrenamientos"/>
             
             <Box m="40px 0 0 0" height="75vh"
             sx={{
@@ -66,7 +70,7 @@ const Contacts = () =>{
               }}
             >
                 <DataGrid 
-                rows= {mockDataContacts}
+                rows= {mockDataStats}
                 columns={columns}
                 components={{Toolbar: GridToolbar}}
                 />

@@ -1,14 +1,76 @@
-export const mockDataTeam = [
-  
-  
+export const mockDataStats = [
+      
     {
       id: 10,
-      name: "Jon Snow",
-      email: "jonsnow@gmail.com",
-      age: 35,
-      phone: "(665)121-5454",
-      access: "admin",
+      score: 79,
+      hits:68,
+      fails:32,
+      date:"12/03/22"
+      ,avTime:3.1
     },
+  
+    {
+      id: 8,
+      score: 76,
+      hits:57,
+      fails:43,
+      date:"04/03/22"
+      ,avTime:3.8
+    },
+    {
+      id: 7,
+      score: 68,
+      hits:49,
+      fails:51,
+      date:"22/02/22"
+      ,avTime:4.2
+    },
+    {
+      id: 6,
+      score: 62,
+      hits:32,
+      fails:68,
+      date:"11/02/22"
+      ,avTime:4.5
+    },
+    {
+      id: 5,
+      score: 67,
+      hits:33,
+      fails:67,
+      date:"03/02/22"
+      ,avTime:4.4
+    },
+    {
+      id: 4,
+      score: 40,
+      hits:15,
+      fails:75,
+      date:"15/01/22"
+      ,avTime:3.1
+    },
+    {
+      id: 3,
+      score: 45,
+      hits:19,
+      fails:81,
+      date:"08/01/22"
+      ,avTime:4
+    },
+    {
+      id: 2,
+      score: 30,
+      hits:13,
+      fails:87,
+      date:"01/01/22"
+      ,avTime:5.2
+    },
+];
+
+
+export const mockDataTeam = [
+  
+    
     {
       id: 11,
       name: "Cersei Lannister",
@@ -202,79 +264,79 @@ export const mockDataTeam = [
   export const mockBarData = [
     {
       country: "Enero",
-      "aciertos": 137,
+      "aciertos": 13,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 96,
+      burger: 9,
       burgerColor: "hsl(296, 70%, 50%)",
-      kebab: 72,
+      kebab: 7,
       kebabColor: "hsl(97, 70%, 50%)",
-      donut: 140,
+      donut: 14,
       donutColor: "hsl(340, 70%, 50%)",
     },
     {
       country: "Febrero",
-      "aciertos": 137,
+      "aciertos": 17,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 28,
+      burger: 2,
       burgerColor: "hsl(111, 70%, 50%)",
-      kebab: 58,
+      kebab: 5,
       kebabColor: "hsl(273, 70%, 50%)",
-      donut: 29,
+      donut: 9,
       donutColor: "hsl(275, 70%, 50%)",
     },
     {
       country: "Marzo",
-      "aciertos": 137,
+      "aciertos": 1,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 23,
+      burger: 3,
       burgerColor: "hsl(96, 70%, 50%)",
-      kebab: 34,
+      kebab: 4,
       kebabColor: "hsl(106, 70%, 50%)",
-      donut: 152,
+      donut: 12,
       donutColor: "hsl(256, 70%, 50%)",
     },
     {
       country: "Abril",
-      "aciertos": 137,
+      "aciertos": 7,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 52,
+      burger: 2,
       burgerColor: "hsl(326, 70%, 50%)",
-      kebab: 43,
+      kebab: 3,
       kebabColor: "hsl(110, 70%, 50%)",
-      donut: 83,
+      donut: 8,
       donutColor: "hsl(9, 70%, 50%)",
     },
     {
       country: "Mayo",
-      "aciertos": 137,
+      "aciertos": 17,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 80,
+      burger: 8,
       burgerColor: "hsl(325, 70%, 50%)",
-      kebab: 112,
+      kebab: 12,
       kebabColor: "hsl(54, 70%, 50%)",
-      donut: 35,
+      donut: 3,
       donutColor: "hsl(285, 70%, 50%)",
     },
     {
       country: "Junio",
-      "aciertos": 137,
+      "aciertos": 13,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 111,
+      burger: 11,
       burgerColor: "hsl(334, 70%, 50%)",
-      kebab: 167,
+      kebab: 16,
       kebabColor: "hsl(182, 70%, 50%)",
       donut: 18,
       donutColor: "hsl(76, 70%, 50%)",
     },
     {
       country: "Julio",
-      "aciertos": 137,
+      "aciertos": 17,
       "aciertosColor": "hsl(334, 70%, 50%)",
-      burger: 47,
+      burger: 7,
       burgerColor: "hsl(141, 70%, 50%)",
-      kebab: 158,
+      kebab: 18,
       kebabColor: "hsl(224, 70%, 50%)",
-      donut: 49,
+      donut: 9,
       donutColor: "hsl(274, 70%, 50%)",
     },
   ];
