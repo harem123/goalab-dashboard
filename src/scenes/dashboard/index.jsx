@@ -14,6 +14,7 @@ import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import DetailTable from "../detailTable";
 
 const Dashboard = () => {
     const theme= useTheme()
@@ -21,7 +22,7 @@ const Dashboard = () => {
     return ( <>
         <Box m="20px">
             <Box display="flex" justifyContent="space-between" alignItems="center" >
-                <Header title="TUS RESULTADOS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
+                <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
             
             
             </Box>
@@ -67,6 +68,9 @@ const Dashboard = () => {
                                 />
                 </Grid>
             </Grid>
+            </Box>
+            <Box > 
+            <DetailTable/>
             </Box>
        </> 
     )

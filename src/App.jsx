@@ -3,12 +3,13 @@ import { CssBaseline, ThemeProvider } from "@mui/material"
 import Topbar from "./scenes/global/Topbar.jsx"
 import {Routes, Route} from "react-router-dom"
 import Team from "./scenes/team"
-import Contacts from "./scenes/contacts"
+import DetailTable from "./scenes/detailTable"
 import { useState } from "react";
 import Sidebarmenu from "./scenes/global/Sidebar";
 import Form from "./scenes/form/form"
 import Bar from "./scenes/bar/graphBar"
 import Dashboard from "./scenes/dashboard"
+import Home from "./scenes/home/home.jsx"
 
 
 function App() {
@@ -25,8 +26,8 @@ const [isSidebar, setIsSidebar] = useState(true);
 
       <Topbar setIsSidebar={setIsSidebar}/>
      <Routes>
-      <Route path="/" element={<Dashboard/>}/>
-      <Route path="/form" element={<Contacts />} />
+      <Route path="/" element={<Home/>}/>
+      <Route path="/results" element={<Dashboard />} />
      </Routes>
     </main>
     </div>

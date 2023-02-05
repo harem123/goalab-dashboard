@@ -7,7 +7,7 @@ import Header from "../../components/Header.jsx"
 
 
 
-const Contacts = () =>{
+const DetailTable = () =>{
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [
@@ -34,7 +34,7 @@ const Contacts = () =>{
 ]
 
     return (
-        <Box m="20px">
+        <Box m="20px" mt="30px">
             <Header title="ENTRENAMIENTOS" subtitle="Historico de resultados de tus entrenamientos"/>
             
             <Box m="40px 0 0 0" height="75vh"
@@ -79,4 +79,4 @@ const Contacts = () =>{
     )
 }
 
-export default Contacts;
+export default DetailTable;

@@ -25,7 +25,8 @@ const Topbar =()=>{
         display="flex"
         
       >
-        <Link to="/">
+        
+        <Link to="/" style={{ textDecoration: 'none' }}>
         <Button
             sx={{
               color: colors.grey[100],
@@ -34,7 +35,7 @@ const Topbar =()=>{
             }}
           >
             <HomeOutlinedIcon />
-            Dashboard
+            HOME
             
           </Button>
           </Link>
@@ -42,7 +43,7 @@ const Topbar =()=>{
         display="flex"
         
       >
-        <Link to="/form">
+        <Link to="/results" style={{ textDecoration: 'none' }}>
         <Button
             sx={{
               color: colors.grey[100],
