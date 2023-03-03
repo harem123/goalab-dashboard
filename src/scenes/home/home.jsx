@@ -1,4 +1,4 @@
-import {Box, Button} from "@mui/material"
+import {Box, Button,Typography} from "@mui/material"
 import Header from "../../components/Header"
 import { useContext } from 'react'
 import { ColorModeContext, tokens } from '../../theme'
@@ -12,8 +12,25 @@ const Home = () =>{
     const colorMode = useContext(ColorModeContext)
     return (
         <Box m="20px" textAlign='center'>
-            <Header title="Goalab Training" subtitle="Goalab es un sistema de entrenamiento y rehabilitacion de futbolistas que te permite mejorar tus habilidades de recepcion y disparo de balon 10 veces mas rapido que en el entrenamiento tradicional,
-        esto debido a que en un entrenamiento de 15 minutos exigue mas concentracion y pone a prueba tus capacidades mas que un en un partido tradicional"/>
+            <Typography
+        variant="h2"
+        color={colors.grey[100]}
+        fontWeight="bold"
+        sx={{ m: "0 0 5px 0" }}
+      >
+        Goalab Training
+      </Typography>
+      <Typography
+        variant="h4"
+        color={colors.grey[100]}
+        fontWeight="bold"
+        sx={{ m: "0 0 5px 0" }}
+      >
+        Mejora tu tecnica de juego 10 veces mas rapido 
+      </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center' , maxWidth: '600px', margin: '0 auto'  }} >
+            <Header  subtitle="Goalab es un sistema de entrenamiento y rehabilitacion de futbolistas que te permite mejorar tus habilidades de recepcion y disparo de balon 10 veces mas rapido que en el entrenamiento tradicional, esto debido a que en un entrenamiento de 15 minutos exigue mas concentracion y pone a prueba tus capacidades mas que un en un partido tradicional"/>
+            </Box>
             <Box >
             <Link to="/results" style={{ textDecoration: 'none' }}>
             <Button
