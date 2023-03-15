@@ -34,7 +34,7 @@ const Topbar =()=>{
               fontWeight: "bold",
             }}
           >
-            <HomeOutlinedIcon />
+            <HomeOutlinedIcon sx={{ fontSize: '30px' }}/>
             HOME
             
           </Button>
@@ -51,7 +51,7 @@ const Topbar =()=>{
               fontWeight: "bold",
             }}
           >
-            <SummarizeIcon sx={{ mr: "2px" }} />
+            <SummarizeIcon sx={{ mr: "2px",fontSize: '30px'  }} />
             RESULTADOS 
             
           </Button>
