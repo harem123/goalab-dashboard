@@ -5,6 +5,7 @@ import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import {Link} from "react-router-dom"
 import goalImg from '../../static/images/home/Goalweb520.jpg'
+import goalsmall from '../../static/images/home/goalsmall.jpeg'
 import useMediaQuery from '@mui/material/useMediaQuery';
 const Home = () =>{
     const theme = useTheme()
@@ -12,9 +13,9 @@ const Home = () =>{
     const colorMode = useContext(ColorModeContext)
     const isXsScreen = useMediaQuery('(max-width:600px)');
     return (
-      <Box sx={{ display: 'flex',justifyContent: 'center' ,margin: '0 auto' , marginTop: '40px'}}>
-        <Box sx={{ marginRight: '16px' }} >
-        <img src={goalImg} alt="goalab image"  sx={{ width: '520px' }}/>
+      <Box sx={{ display: 'flex',justifyContent: 'center',flexDirection: isXsScreen ? 'column' : 'row' ,margin: '0 auto' , marginTop: '40px'}}>
+        <Box sx={{ marginRight: '16px',justifyContent: 'center' }} >
+        <img src={isXsScreen ? goalsmall : goalImg} alt="goalab image" />
         </Box>
         <Box textAlign='center' >
             <Typography
