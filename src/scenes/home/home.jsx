@@ -1,6 +1,6 @@
 import {Box, Button,Typography} from "@mui/material"
 import Header from "../../components/Header"
-import { useContext } from 'react'
+import { useContext , useState, useEffect} from 'react'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import {Link} from "react-router-dom"
@@ -12,6 +12,12 @@ const Home = () =>{
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
     const isXsScreen = useMediaQuery('(max-width:600px)');
+
+   
+
+   
+  
+
     return (
       <Box sx={{ display: 'flex',justifyContent: 'center',flexDirection: isXsScreen ? 'column' : 'row' ,margin: '0 auto' , marginTop: '40px'}}>
         <Box sx={{ marginRight: '16px',justifyContent: 'center' }} >
