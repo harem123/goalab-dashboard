@@ -15,10 +15,26 @@ import DetailTable from "../detailTable";
 const Dashboard = (props) => {
     const theme= useTheme()
     const colors= tokens(theme.palette.mode)
+    const [stats, setStats] = useState();
+    const [isLoading, setIsLoading] = useState(true)
+    
+    const [settings, setSettings] = useState();
+    
+    useEffect(() => {
+      fetch("https://backend-gl.up.railway.app/api/v1/stats/1")
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+          setSettings(data);
+      });
+    }, []);
+    if (!settings){
+      return null
+    }
+    
 
-   const hits = props.settings.summary.hits.hitPercent
-   const fails = props.settings.summary.fails.failPercent
-
+   const hits= settings.summary.fails.failPercent
+    console.log(hits)
 
     return ( <>
         <Box m="20px">
@@ -36,19 +52,10 @@ const Dashboard = (props) => {
                 {/**ROW 1 */}
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title={`${hits} %`} subtitle="Aciertos"
-                                progress={hits} increase="+14%"
-                                icon={ <CheckCircleIcon sx={{color:colors.greenAccent[600],
-                                fontSize:"26px"  }}
-                                />}
-                                />
-                </Grid>
-                <Grid item xs={6} md={3} lg={3}  >
-                    
-                    <StatBox title={`${fails} %`} subtitle="Fallos"
-                                progress={hits} increase="-14%"
-                                icon={ <DangerousIcon sx={{color:colors.greenAccent[600],
-                                fontSize:"26px"  }}
+                    <StatBox title="120 pts" subtitle="Puntaje"
+                                progress="0.75" increase="+14%"
+                                icon={ <SportsScoreIcon sx={{color:colors.greenAccent[600],
+                                fontSize:"30px"  }}
                                 />}
                                 />
                 </Grid>
@@ -57,19 +64,30 @@ const Dashboard = (props) => {
                     <StatBox title="4,56 s" subtitle="Tiempo Prom"
                                 progress="0.75" increase="+34%"
                                 icon={ <MoreTimeIcon sx={{color:colors.greenAccent[600],
-                                fontSize:"26px"  }}
+                                fontSize:"30px"  }}
                                 />}
                                 />
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title="120 pts" subtitle="Puntaje Prom"
-                                progress="0.75" increase="+14%"
-                                icon={ <SportsScoreIcon sx={{color:colors.greenAccent[600],
-                                fontSize:"26px"  }}
+                    <StatBox title={`${hits} %`} subtitle="Aciertos"
+                                progress= {hits} increase="+14%"
+                                icon={ <CheckCircleIcon sx={{color:colors.greenAccent[600],
+                                fontSize:"30px"  }}
                                 />}
                                 />
                 </Grid>
+                <Grid item xs={6} md={3} lg={3}  >
+                    
+                    <StatBox title="64" subtitle="Fallos"
+                                progress="2" increase="-14%"
+                                icon={ <DangerousIcon sx={{color:colors.redAccent[400],
+                                fontSize:"30px"  }}
+                                />}
+                                />
+                </Grid>
+               
+                
             </Grid>
             </Box>
             <Box > 
