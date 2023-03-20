@@ -5,6 +5,7 @@ import Topbar from "./scenes/global/Topbar.jsx"
 import ResposiveBox from "./scenes/home/imageBox"
 
 import Login from "./scenes/home/Login"
+import Register from "./scenes/home/Register"
 import {Routes, Route} from "react-router-dom"
 
 import Dashboard from "./scenes/dashboard"
@@ -29,6 +30,7 @@ const [isSidebar, setIsSidebar] = useState(true);
       <Route path="/" element={<ResposiveBox/>}/>
       <Route path="/results" element={<Dashboard/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
      </Routes>
     </main>
     </div>
