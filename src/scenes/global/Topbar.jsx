@@ -71,12 +71,12 @@ const Topbar =()=>{
               )}
             </IconButton>
             
-            <IconButton>
-              <SettingsOutlinedIcon />
-            </IconButton>
+           
+            <Link to="/login" style={{ textDecoration: 'none' }}>
             <IconButton>
               <PersonOutlinedIcon />
             </IconButton>
+            </Link>
           </Box>
         </Box>
       );

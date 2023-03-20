@@ -2,16 +2,13 @@ import { useContext , useState, useEffect} from 'react'
 import { ColorModeContext, useMode } from "./theme"
 import { CssBaseline, ThemeProvider } from "@mui/material"
 import Topbar from "./scenes/global/Topbar.jsx"
-import ResposiveBox from "./scenes/global/imageBox.jsx"
-import {Routes, Route} from "react-router-dom"
-import Team from "./scenes/team"
-import DetailTable from "./scenes/detailTable"
+import ResposiveBox from "./scenes/home/imageBox"
 
-import Sidebarmenu from "./scenes/global/Sidebar";
-import Form from "./scenes/form/form"
-import Bar from "./scenes/bar/graphBar"
+import Login from "./scenes/home/Login"
+import {Routes, Route} from "react-router-dom"
+
 import Dashboard from "./scenes/dashboard"
-import Home from "./scenes/home/home.jsx"
+
 
 
 function App() {
@@ -31,6 +28,7 @@ const [isSidebar, setIsSidebar] = useState(true);
      <Routes>
       <Route path="/" element={<ResposiveBox/>}/>
       <Route path="/results" element={<Dashboard/>} />
+      <Route path="/login" element={<Login/>} />
      </Routes>
     </main>
     </div>

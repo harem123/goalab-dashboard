@@ -3,7 +3,6 @@ import goalImg from '../../static/images/home/Goalweb520.jpg'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import { useContext , useState, useEffect} from 'react'
-import Header from '../../components/Header'
 import {Link} from "react-router-dom"
 
 function ResponsiveBox() {

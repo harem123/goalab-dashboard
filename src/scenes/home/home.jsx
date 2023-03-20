@@ -7,7 +7,8 @@ import {Link} from "react-router-dom"
 import goalImg from '../../static/images/home/Goalweb520.jpg'
 import goalsmall from '../../static/images/home/goalsmall.jpeg'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import ResposiveBox from '../global/imageBox.jsx'
+
+
 
 const Home = () =>{
     const theme = useTheme()
