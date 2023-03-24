@@ -5,7 +5,6 @@ import { ColorModeContext, tokens } from '../../theme'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SummarizeIcon from '@mui/icons-material/Summarize';
 

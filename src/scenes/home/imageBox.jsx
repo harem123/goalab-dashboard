@@ -1,4 +1,4 @@
-import { Box, Grid, Typography,Button } from "@mui/material"
+import { Box, Typography,Button } from "@mui/material"
 import goalImg from '../../static/images/home/Goalweb520.jpg'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"

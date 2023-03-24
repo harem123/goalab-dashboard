@@ -1,15 +1,12 @@
-import { useContext , useState, useEffect} from 'react'
-import { Box, Button,Grid, IconButton, Typography, useTheme } from "@mui/material";
+import { useState, useEffect} from 'react'
+import { Box, Grid,useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-
 import MoreTimeIcon from '@mui/icons-material/MoreTime';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import DangerousIcon from '@mui/icons-material/Dangerous';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Header from "../../components/Header";
-import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
 import DetailTable from "../detailTable";
 
 const Dashboard = (props) => {
@@ -20,8 +17,17 @@ const Dashboard = (props) => {
     
     const [settings, setSettings] = useState();
     
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    console.log(userId)
+    console.log(token)
+    const url = "http://localhost:3000/api/v1/protectedstats/"+userId
     useEffect(() => {
-      fetch("https://backend-gl.up.railway.app/api/v1/stats/1")
+      fetch(url , {
+        headers: {
+          'Authorization': token
+        }
+      } )
       .then(response => response.json())
       .then(data => {
           console.log(data);
@@ -34,7 +40,7 @@ const Dashboard = (props) => {
     
 
    const hits= settings.summary.fails.failPercent
-    console.log(hits)
+    
 
     return ( <>
         <Box m="20px">

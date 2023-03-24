@@ -4,9 +4,6 @@ import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import {Link} from "react-router-dom"
 
-
-
-
 const Register = () =>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
@@ -47,10 +44,7 @@ const Register = () =>{
     });
   };
 
-  const handleRegister = (event) => {
-    event.preventDefault();
-    console.log("Register button clicked");
-  };
+  
 
     return (
         <Box

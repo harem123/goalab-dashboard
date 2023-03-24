@@ -3,18 +3,17 @@ import { useContext , useState, useEffect} from 'react'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import {Link} from "react-router-dom"
-
-
-
-
+import {Navigate, useNavigate } from "react-router-dom"
 const Login = () =>{
 
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
-   
+    const [token, setToken] = useState('');
     const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoggedIn, setisLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -24,10 +23,17 @@ const Login = () =>{
     setPassword(event.target.value);
   };
 
+  useEffect(() => {
+    // Checking if user is not loggedIn
+    if (isLoggedIn) {
+      navigate("/results");
+    } 
+  }, [navigate, isLoggedIn]);
+
   const handleLogin = (event) => {
     event.preventDefault();
 
-    fetch("https://backend-gl.up.railway.app/api/v1/login", {
+    fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -36,19 +42,18 @@ const Login = () =>{
     })
     .then(response => response.json())
     .then(data => {
-        console.log("Grade added");
-        console.log(data);
-        console.log(`Emai: ${email}`);
+       const token = data.token
+       const userId =data.userId
+        console.log(userId);
+        localStorage.setItem('token', token);
+        localStorage.setItem('userId', userId);
+        setisLoggedIn(true)
     });
-}
+
     
-  
 
-  const handleRegister = (event) => {
-    event.preventDefault();
-    console.log("Register button clicked");
-  };
-
+  }
+    
     return (
         <Box
       sx={{
