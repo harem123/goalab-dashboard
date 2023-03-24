@@ -15,7 +15,7 @@ const Dashboard = (props) => {
     const [stats, setStats] = useState();
     const [isLoading, setIsLoading] = useState(true)
     
-    const [settings, setSettings] = useState();
+    const [apiInfo, setApiInfo] = useState();
     
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
@@ -31,15 +31,15 @@ const Dashboard = (props) => {
       .then(response => response.json())
       .then(data => {
           console.log(data);
-          setSettings(data);
+          setApiInfo(data);
       });
     }, []);
-    if (!settings){
+    if (!apiInfo){
       return null
     }
     
 
-   const hits= settings.summary.fails.failPercent
+   const hits= apiInfo.summary.fails.failPercent
     
 
     return ( <>
