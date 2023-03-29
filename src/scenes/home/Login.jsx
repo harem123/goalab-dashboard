@@ -26,32 +26,40 @@ const Login = () =>{
   useEffect(() => {
     // Checking if user is not loggedIn
     if (isLoggedIn) {
-      navigate("/results");
+      navigate("/protected");
     } 
   }, [navigate, isLoggedIn]);
 
   const handleLogin = (event) => {
     event.preventDefault();
-
-    fetch("http://localhost:3000/api/v1/login", {
+    
+    const liveUrl= "https://backend-gl.up.railway.app/api/v1/login"
+    const testUrl = "http://localhost:3000/api/v1/login"
+    fetch(testUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({email:`${email}`,password:`${password}`})
     })
-    .then(response => response.json())
-    .then(data => {
+    .then(response => {
+      if (response.status === 400) {
+        alert("Error: Email o password incorrectos, por favor intente nuevamente.");
+      } else {
+        return response.json();
+      }
+    })
+      .then(data => {
        const token = data.token
        const userId =data.userId
         console.log(userId);
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
         setisLoggedIn(true)
-    });
-
-    
-
+    })
+    .catch(error => {
+      alert("Error: " + error.message);
+  });
   }
     
     return (

@@ -9,21 +9,24 @@ import Header from "../../components/Header";
 import StatBox from "../../components/StatBox";
 import DetailTable from "../detailTable";
 
-const Dashboard = (props) => {
+
+const DashProtected = (props) => {
     const theme= useTheme()
     const colors= tokens(theme.palette.mode)
     const [stats, setStats] = useState();
     const [isLoading, setIsLoading] = useState(true)
     
-    const [settings, setSettings] = useState();
+    const [info, setInfo] = useState();
     
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
     console.log(userId)
     console.log(token)
-    const url = "https://backend-gl.up.railway.app/api/v1/stats/"+userId
+    const liveUrl = "https://backend-gl.up.railway.app/api/v1/protectedstats/"+userId
+    
+    const testUrl = "http://localhost:3000/api/v1/protectedstats/"+userId
     useEffect(() => {
-      fetch(url , {
+      fetch(testUrl , {
         headers: {
           'Authorization': token
         }
@@ -31,24 +34,19 @@ const Dashboard = (props) => {
       .then(response => response.json())
       .then(data => {
           console.log(data);
-          setSettings(data);
+          setInfo(data);
       });
     }, []);
-    if (!settings){
+
+    if (!info){
       return <Box m="20px">
             
       <Box display="flex" justifyContent="space-between" alignItems="center" >
           
-          <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
-      
-      
+          <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas sesiones de entrenamiento "/>
       </Box>
       </Box>
     }
-    
-
-   const hits= settings.summary.fails.failPercent
-    
 
     return ( <>
         <Box m="20px">
@@ -56,9 +54,9 @@ const Dashboard = (props) => {
             <Box display="flex" justifyContent="space-between" alignItems="center" >
                 
                 <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
-            
-            
+                      
             </Box>
+            
             </Box>
             {/* GRID CHART*/}
             <Box m="20px" mr="30px">
@@ -67,7 +65,7 @@ const Dashboard = (props) => {
                 <Grid item xs={6} md={3} lg={3}>
                     
                     <StatBox title="120 pts" subtitle="Puntaje"
-                                progress="0.75" increase="+14%"
+                                progress="0.14" increase="+14%"
                                 icon={ <SportsScoreIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}
@@ -84,8 +82,8 @@ const Dashboard = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title={`${hits} %`} subtitle="Aciertos"
-                                progress= {hits} increase="+14%"
+                    <StatBox title="23%" subtitle="Aciertos"
+                                progress= "0.23" increase="+21%"
                                 icon={ <CheckCircleIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}
@@ -93,8 +91,8 @@ const Dashboard = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}  >
                     
-                    <StatBox title="64" subtitle="Fallos"
-                                progress="2" increase="-14%"
+                    <StatBox title="67%" subtitle="Fallos"
+                                progress="0.67" increase="-21%"
                                 icon={ <DangerousIcon sx={{color:colors.redAccent[400],
                                 fontSize:"30px"  }}
                                 />}
@@ -110,4 +108,4 @@ const Dashboard = (props) => {
        </> 
     )
 }
-export default Dashboard
+export default DashProtected

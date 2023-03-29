@@ -3,12 +3,14 @@ import { useContext , useState, useEffect} from 'react'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
 import {Link} from "react-router-dom"
+import {Navigate, useNavigate } from "react-router-dom"
 
 const Register = () =>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
-   
+    const navigate = useNavigate();
+    const [isRegister, setisRegister] = useState(false);
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -29,22 +31,44 @@ const Register = () =>{
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("https://backend-gl.up.railway.app/api/v1/register", {
+    const liveUrl= "https://backend-gl.up.railway.app/api/v1/register"
+    const testUrl = "http://localhost:3000/api/v1/register"
+    fetch(testUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({email:`${email}`,password:`${password}`,name:`${name}`,lastname:`${lastname}`})
+        body: JSON.stringify({
+          email: `${email}`,
+          password: `${password}`,
+          name: `${name}`,
+          lastname: `${lastname}`
+        })
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.status === 409) {
+        throw new Error("Email already registered");
+      } 
+    })
     .then(data => {
-        console.log("user registered");
-        console.log(data);
-        console.log(`Email: ${email}`);
+      setisRegister(true)
+    })
+    .catch(error => {
+        if (error.message === "Email already registered") {
+          alert("El correo electronico ingresado, ya se encuentra registrado.");
+        } else {
+          alert("Ocurrio un error en el registro, por favor intente nuevamente");
+        }
     });
   };
-
   
+  useEffect(() => {
+    // Checking if user have been registered
+    if (isRegister) {
+      alert("Registro exitoso. Será redirigido a la página de inicio de sesión.");
+      navigate("/login");
+    } 
+  }, [navigate, isRegister]);
 
     return (
         <Box

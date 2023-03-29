@@ -9,6 +9,7 @@ import Register from "./scenes/home/Register"
 import {Routes, Route} from "react-router-dom"
 
 import Dashboard from "./scenes/dashboard"
+import DashProtected from './scenes/protectedDash'
 
 
 
@@ -31,6 +32,7 @@ const [isSidebar, setIsSidebar] = useState(true);
       <Route path="/results" element={<Dashboard/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/protected" element={<DashProtected/>} />
      </Routes>
     </main>
     </div>
