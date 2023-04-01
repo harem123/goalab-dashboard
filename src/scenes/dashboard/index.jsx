@@ -47,7 +47,7 @@ const Dashboard = (props) => {
     }
     
 
-   const hits= settings.summary.fails.failPercent
+   
     
 
     return ( <>
@@ -84,8 +84,8 @@ const Dashboard = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title={`${hits} %`} subtitle="Aciertos"
-                                progress= {hits} increase="+14%"
+                    <StatBox title="16%" subtitle="Aciertos"
+                                progress= "0.14" increase="+14%"
                                 icon={ <CheckCircleIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}

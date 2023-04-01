@@ -35,7 +35,7 @@ const Login = () =>{
     
     const liveUrl= "https://backend-gl.up.railway.app/api/v1/login"
     const testUrl = "http://localhost:3000/api/v1/login"
-    fetch(testUrl, {
+    fetch(liveUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
