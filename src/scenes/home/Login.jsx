@@ -83,7 +83,7 @@ const Login = () =>{
           variant="h4"
           sx={{ marginBottom: "16px", textAlign: "center" }}
         >
-          Bienvenido a Goalab
+          Welcome to Goalab
         </Typography>
         <form onSubmit={handleLogin}>
           <TextField
