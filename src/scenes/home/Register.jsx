@@ -33,7 +33,7 @@ const Register = () =>{
     event.preventDefault();
     const liveUrl= "https://backend-gl.up.railway.app/api/v1/register"
     const testUrl = "http://localhost:3000/api/v1/register"
-    fetch(testUrl, {
+    fetch(liveUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -26,7 +26,7 @@ const DashProtected = (props) => {
     
     const testUrl = "http://localhost:3000/api/v1/protectedstats/"+userId
     useEffect(() => {
-      fetch(testUrl , {
+      fetch(liveUrl , {
         headers: {
           'Authorization': token
         }
