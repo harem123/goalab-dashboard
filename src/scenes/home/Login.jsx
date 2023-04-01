@@ -43,7 +43,7 @@ const Login = () =>{
         body: JSON.stringify({email:`${email}`,password:`${password}`})
     })
     .then(response => {
-      if (response.status === 400) {
+      if (response.status === 403) {
         alert("Error: Email o password incorrectos, por favor intente nuevamente.");
       } else {
         return response.json();
