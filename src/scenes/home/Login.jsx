@@ -1,4 +1,4 @@
-import {Box, Button,Typography,TextField,} from "@mui/material"
+import {Box, Button,Typography,TextField,CircularProgress} from "@mui/material"
 import { useContext , useState, useEffect} from 'react'
 import { ColorModeContext, tokens } from '../../theme'
 import { useTheme} from "@mui/material"
@@ -13,6 +13,7 @@ const Login = () =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setisLoggedIn] = useState(false);
+    const [isLoading, setLoading] = useState(false)
     const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
@@ -32,7 +33,7 @@ const Login = () =>{
 
   const handleLogin = (event) => {
     event.preventDefault();
-    
+    setLoading(true)
     const liveUrl= "https://backend-gl.up.railway.app/api/v1/login"
     const testUrl = "http://localhost:3000/api/v1/login"
     fetch(liveUrl, {
@@ -55,12 +56,15 @@ const Login = () =>{
         console.log(userId);
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
+        setLoading(false)
         setisLoggedIn(true)
     })
     .catch(error => {
       alert("Error: " + error.message);
   });
   }
+
+  
     
     return (
         <Box

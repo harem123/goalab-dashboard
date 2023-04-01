@@ -17,34 +17,8 @@ const Dashboard = (props) => {
     
     const [apiInfo, setApiInfo] = useState();
     
-    const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId');
-    console.log(userId)
-    console.log(token)
-    const url = "https://backend-gl.up.railway.app/api/v1/stats/"+userId
-    useEffect(() => {
-      fetch(url , {
-        headers: {
-          'Authorization': token
-        }
-      } )
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
-          setApiInfo(data);
-      });
-    }, []);
-    if (!settings){
-      return <Box m="20px">
-            
-      <Box display="flex" justifyContent="space-between" alignItems="center" >
-          
-          <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
-      
-      
-      </Box>
-      </Box>
-    }
+   
+   
       
 
     return ( <>
@@ -101,9 +75,7 @@ const Dashboard = (props) => {
                 
             </Grid>
             </Box>
-            <Box > 
-            <DetailTable/>
-            </Box>
+            
        </> 
     )
 }

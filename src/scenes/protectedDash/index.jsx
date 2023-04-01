@@ -33,7 +33,7 @@ const DashProtected = (props) => {
       } )
       .then(response => response.json())
       .then(data => {
-          console.log(data);
+          
           setInfo(data);
       });
     }, []);
@@ -43,7 +43,7 @@ const DashProtected = (props) => {
             
       <Box display="flex" justifyContent="space-between" alignItems="center" >
           
-          <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas sesiones de entrenamiento "/>
+          <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus sesiones de entrenamiento "/>
       </Box>
       </Box>
     }
@@ -53,7 +53,7 @@ const DashProtected = (props) => {
             
             <Box display="flex" justifyContent="space-between" alignItems="center" >
                 
-                <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus ultimas 30 sesiones de entrenamiento "/>
+                <Header title="TUS ESTADISTICAS" subtitle="las cifras mas significativas de tu avance basado en tus sesiones de entrenamiento "/>
                       
             </Box>
             
@@ -64,8 +64,8 @@ const DashProtected = (props) => {
                 {/**ROW 1 */}
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title="120 pts" subtitle="Puntaje"
-                                progress="0.14" increase="+14%"
+                    <StatBox title= {`${info.summary2.score.totScore} pts`} subtitle="Puntaje"
+                                progress={info.summary2.score.progress} increase={`${info.summary2.score.progress*100}%`}
                                 icon={ <SportsScoreIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}
@@ -73,8 +73,8 @@ const DashProtected = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title="4,56 s" subtitle="Tiempo Prom"
-                                progress="0.75" increase="+34%"
+                    <StatBox title={`${info.summary2.time.timeAvr} s`} subtitle="Tiempo Prom"
+                                progress={info.summary2.time.progress} increase={`${info.summary2.time.progress *100}%`}
                                 icon={ <MoreTimeIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}
@@ -82,8 +82,8 @@ const DashProtected = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}>
                     
-                    <StatBox title="23%" subtitle="Aciertos"
-                                progress= "0.23" increase="+21%"
+                    <StatBox title={`${info.summary2.hits.hitPercent} %`} subtitle="Aciertos"
+                                progress= {info.summary2.hits.progress} increase= {`${info.summary2.hits.progress *100} %`} 
                                 icon={ <CheckCircleIcon sx={{color:colors.greenAccent[600],
                                 fontSize:"30px"  }}
                                 />}
@@ -91,8 +91,8 @@ const DashProtected = (props) => {
                 </Grid>
                 <Grid item xs={6} md={3} lg={3}  >
                     
-                    <StatBox title="67%" subtitle="Fallos"
-                                progress="0.67" increase="-21%"
+                    <StatBox title= {`${info.summary2.fails.failPercent} %`} subtitle="Fallos"
+                                progress={info.summary2.fails.progress}  increase= {`${info.summary2.fails.progress *100} %`} 
                                 icon={ <DangerousIcon sx={{color:colors.redAccent[400],
                                 fontSize:"30px"  }}
                                 />}
@@ -103,7 +103,7 @@ const DashProtected = (props) => {
             </Grid>
             </Box>
             <Box > 
-            <DetailTable/>
+            <DetailTable info={info}/>
             </Box>
        </> 
     )

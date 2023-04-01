@@ -7,14 +7,14 @@ import Header from "../../components/Header.jsx"
 
 
 
-const DetailTable = () =>{
+const DetailTable = (props) =>{
 
   
 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [
-      {field: "date", headerName:"fecha", 
+      {field: "createdAt", headerName:"fecha", 
       flex:1, 
       cellClassName: "name-column--cell"},
 
@@ -22,10 +22,10 @@ const DetailTable = () =>{
     flex:1, 
     cellClassName: "name-column--cell"},
 
-    {field: "hits", headerName:"Aciertos", type:"number",
+    {field: "average_hits", headerName:"Aciertos", type:"number",
     flex:1,cellClassName: "name-column--cell" },
 
-    {field: "fails", headerName:"Fallados", type:"number",
+    {field: "average_fails", headerName:"Fallados", type:"number",
     headerAlign:"left",
     align:"center",
     flex:1, 
@@ -38,7 +38,7 @@ const DetailTable = () =>{
 
     return (
         <Box m="20px" mt="30px">
-            <Header title="ENTRENAMIENTOS" subtitle="Historico de resultados de tus entrenamientos"/>
+            <Header title="TUS RESULTADOS" subtitle="Historico de resultados de tus entrenamientos"/>
             
             <Box m="40px 0 0 0" height="75vh"
             sx={{
@@ -73,7 +73,7 @@ const DetailTable = () =>{
               }}
             >
                 <DataGrid 
-                rows= {mockDataStats}
+                rows= {props.info.avrResult.rows}
                 columns={columns}
                 components={{Toolbar: GridToolbar}}
                 />
