@@ -23,15 +23,21 @@ const DashProtected = (props) => {
     console.log(userId)
     console.log(token)
     const liveUrl = "https://backend-gl.up.railway.app/api/v1/protectedstats/"+userId
-    
     const testUrl = "http://localhost:3000/api/v1/protectedstats/"+userId
+    
     useEffect(() => {
       fetch(liveUrl , {
         headers: {
           'Authorization': token
         }
       } )
-      .then(response => response.json())
+      .then(response => {
+        if (response.status === 403) {
+          alert("Error: Token no valido.");
+        } else {
+          return response.json();
+        }
+      })
       .then(data => {
           
           setInfo(data);

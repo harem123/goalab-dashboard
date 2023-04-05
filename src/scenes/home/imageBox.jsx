@@ -41,8 +41,11 @@ function ResponsiveBox() {
       >
         Mejora tu tecnica de juego 10 veces mas rapido 
       </Typography>
-      <Typography variant="h3" color={colors.greenAccent[400]}>
-          Goalab es un sistema del más alto nivel tecnológico de entretenimiento y rehabilitación de futbolistas que permite perfeccionar tus habilidades en la recepción y disparo del balón muchas veces más rápido y preciso optimizando la concentración y reflejos para jugar.
+      <Typography variant="h3" color={colors.greenAccent[400]} sx={{ m: "0 0 5px 0" }}>
+      Goalab es un sistema de entrenamiento y rehabilitación de futbolistas que te permite mejorar tus habilidades de recepción y disparo de balón 10 veces más rápido que en el entrenamiento tradicional, esto es debido a que en un entrenamiento de 15 minutos exige más concentración y pone a prueba tus capacidades más que en un partido habitual. 
+          </Typography>
+          <Typography variant="h3" color={colors.greenAccent[400]}>
+          Disfruta tu entrenamiento del más alto nivel con goalab
           </Typography>
           <Box sx={{ m: "20px 0 0 0" }} >
             <Link to="/results" style={{ textDecoration: 'none' }}>

@@ -7,7 +7,7 @@ import DangerousIcon from '@mui/icons-material/Dangerous';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Header from "../../components/Header";
 import StatBox from "../../components/StatBox";
-import DetailTable from "../detailTable";
+import DetailTableDemo from "../demoTable/demoTable";
 
 const Dashboard = (props) => {
     const theme= useTheme()
@@ -75,7 +75,9 @@ const Dashboard = (props) => {
                 
             </Grid>
             </Box>
-            
+            <Box > 
+            <DetailTableDemo />
+            </Box>
        </> 
     )
 }
