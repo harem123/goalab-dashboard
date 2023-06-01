@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import useFetch from "../../customHooks/useFetch.jsx";
 import MaterialCard from "../../components/MaterialCard.jsx"
-import MediaCard from "../../components/LizardCard.jsx";
+import PagesButtons from "../../components/PagesButton.jsx";
 
 //import Loader from "../global/Loader.jsx";
 
 export default function Comics(props) {
   const [comics, setComics] = useState([]);
   const [letter, setLetter] = useState("d");
+  const [offset, setOffset] = useState(0);
   const { get, loading } = useFetch();
 
   useEffect(() => {
@@ -18,6 +19,11 @@ export default function Comics(props) {
       .catch((error) => console.log("Could not load comics", error));
   }, []);
 console.log(comics)
+const handleClick = num => {
+  // 👇️ take the parameter passed from the Child component
+  setOffset(current => current + num);
+};
+console.log('offset: ', offset);
   return (
     <div className="comics-layout">
       <h1>Comics</h1>
@@ -35,7 +41,9 @@ console.log(comics)
         </div>
         ))}
       </div>
-      
+      <div className="navigate buttons">
+        <PagesButtons handleClick={handleClick}/>
+      </div>
     </div>
   );
 }
