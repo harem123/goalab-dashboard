@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import useFetch from "../../customHooks/useFetch.jsx";
+import MaterialCard from "../../components/MaterialCard.jsx"
+import MediaCard from "../../components/LizardCard.jsx";
+
 //import Loader from "../global/Loader.jsx";
 
 export default function Comics(props) {
@@ -19,6 +22,10 @@ console.log(comics)
     <div className="comics-layout">
       <h1>Comics</h1>
       <p>Take a look at our comics</p>
+      <div className="muiCard">
+      <MaterialCard/>
+      </div>
+      
       <div className="cards">
         {comics.map((comic,key )=> (
         <div className="card">
