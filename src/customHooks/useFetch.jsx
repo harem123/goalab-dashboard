@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function useFetch() {
-  const hash = "&ts=10&apikey=b732999649de0859e0e4d574707db4ec&hash=a6d21bcb5f6ff38734ec923f22493ff6"
+  const hash = import.meta.env.VITE_HASH
   const [loading, setLoading] = useState(true);
 
   function get(url) {
