@@ -7,20 +7,26 @@ import PagesButtons from "../../components/PagesButton.jsx";
 
 export default function Comics(props) {
   const [comics, setComics] = useState([]);
-  const [letter, setLetter] = useState("b");
-  const [offset, setOffset] = useState(0);
+  const [filter, setFilter] = useState("b");
+  const [offset, setOffset] = useState(200);
   const { get, loading } = useFetch();
 
   useEffect(() => {
-    get("http://gateway.marvel.com/v1/public/comics?titleStartsWith="+letter+"&orderBy=title&offset=200")
+    get(`http://gateway.marvel.com/v1/public/comics?titleStartsWith=${filter}&orderBy=title&offset=${offset}`)
       .then((data) => {
         setComics(data.data.results);
         
       })
       .catch((error) => console.log("Could not load comics", error));
-  }, []);
+  }, [offset,filter]);
 
-  const handleClick = num => {
+  const handleLetterClick = (letter) => {
+    // 👇️ take the parameter passed from the Child component
+    setFilter(letter);
+    console.log(letter)
+  };
+
+  const handlePageClick = (num) => {
     // 👇️ take the parameter passed from the Child component
     setOffset(current => current + num);
   };
@@ -31,7 +37,7 @@ export default function Comics(props) {
       <p>Take a look at our comics</p>
      
       <div className="alphabetBar">
-        <AlphabetNavBar/>
+        <AlphabetNavBar onLetterClick={handleLetterClick}/>
         
       </div>
     
@@ -41,7 +47,7 @@ export default function Comics(props) {
         ))}
       </div>
       <div className="navigate buttons">
-        <PagesButtons handleClick={handleClick}/>
+        <PagesButtons handlePageClick={handlePageClick}/>
       </div>
     </div>
   );
