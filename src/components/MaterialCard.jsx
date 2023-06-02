@@ -24,7 +24,8 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function MaterialCard() {
+export default function MaterialCard(props) {
+  const { details } = props;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,13 +35,13 @@ export default function MaterialCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        title="Marvel Comic"
-        subheader="September 14, 2016"
+        title= {details.title}
+        subheader= {details.dates[0].date}
       />
       <CardMedia
         component="img"
         height="194"
-        image="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+        image={`${details.thumbnail.path}.${details.thumbnail.extension}`}
         alt="Comic Image"
         style={{ objectFit: 'contain' }}
       />
