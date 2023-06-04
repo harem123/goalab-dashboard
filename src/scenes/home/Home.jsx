@@ -3,7 +3,10 @@ import useFetch from "../../customHooks/useFetch.jsx";
 import AlphabetNavBar from "../../components/AlphabetBar.jsx"
 import MaterialCard from "../../components/MaterialCard.jsx"
 import PagesButtons from "../../components/PagesButton.jsx";
-//import Loader from "../global/Loader.jsx";
+import { Grid } from '@mui/material';
+import TopBar from '../topBar/TopBar.jsx'
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 export default function Comics(props) {
   const [comics, setComics] = useState([]);
@@ -32,23 +35,33 @@ export default function Comics(props) {
   };
 
   return (
+
     <div className="comics-layout">
-      <h1>Comics</h1>
-      <p>Take a look at our comics</p>
-     
+      <TopBar/>
       <div className="alphabetBar">
         <AlphabetNavBar onLetterClick={handleLetterClick}/>
-        
       </div>
-    
-      <div className="cards">
+      <Typography variant = 'h3' style={{color: 'secondary'}}>
+        COMICS
+      </Typography>
+      <Typography variant = 'h4'>
+        Take a look at our comics
+      </Typography>
+     
+      
+      <Box justifyContent="center" marginTop={2} display="flex" marginBottom={2}>
+      <Grid container spacing={1} justifyContent="center">
         {comics.map((comic)=> (
+        <Grid item xs={12} sm={6} md={4} key={comic.id}>
        <MaterialCard details = {comic} />
+       </Grid>
+       
         ))}
-      </div>
-      <div className="navigate buttons">
+      </Grid>
+      </Box>
+      <Box justifyContent="center" marginTop={2} display="flex" marginBottom={2}>
         <PagesButtons handlePageClick={handlePageClick}/>
-      </div>
+        </Box>
     </div>
   );
 }
